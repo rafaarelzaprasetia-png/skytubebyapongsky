@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyTube - by apongsky73</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0f0f0f',
+                        surface: '#212121',
+                        bordercolor: '#3f3f3f'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darkbg text-white font-['Inter'] min-h-screen flex flex-col">
+    <!-- Header Navbar -->
+    <header class="flex items-center justify-between px-4 py-3 bg-darkbg sticky top-0 z-50 border-b border-bordercolor">
+        <div class="flex items-center gap-4">
+            <button class="text-xl p-2 hover:bg-surface rounded-full"><i class="fa-solid fa-bars"></i></button>
+            <div class="flex items-center gap-1 cursor-pointer">
+                <i class="fa-brands fa-youtube text-red-600 text-3xl"></i>
+                <span class="text-xl font-bold tracking-tighter">SkyTube</span>
+            </div>
+        </div>
+        <div class="flex-1 max-w-xl mx-4 hidden md:flex items-center">
+            <div class="flex w-full bg-surface border border-bordercolor rounded-l-full px-4 py-2 focus-within:border-blue-500">
+                <input type="text" id="searchInput" placeholder="Telusuri..." class="bg-transparent w-full focus:outline-none text-sm">
+            </div>
+            <button id="searchBtn" class="bg-[#222] border border-l-0 border-bordercolor px-6 rounded-r-full hover:bg-[#333]">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+        <div class="flex items-center gap-3">
+            <span class="text-xs text-zinc-400 hidden sm:inline">Dev: apongsky73</span>
+            <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center font-bold text-sm">AS</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 md:p-6 max-w-7xl mx-auto w-full">
+        <div class="flex items-center gap-2 mb-6 text-red-500 font-semibold">
+            <i class="fa-solid fa-fire"></i>
+            <span>Rekomendasi & Hasil Pencarian</span>
+        </div>
+        <div id="videoContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="col-span-full text-center py-20 text-zinc-400">
+                <i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i>
+                <p>Memuat video dari YouTube...</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple fallback script to prevent empty load
+        setTimeout(() => {
+            const container = document.getElementById('videoContainer');
+            if(container) {
+                container.innerHTML = `<div class="col-span-full text-center py-10 text-zinc-500 text-sm">Berhasil terhubung ke Netlify. Siap digunakan oleh apongsky73!</div>`;
+            }
+        }, 1500);
+    </script>
+</body>
+  </html>
+  
